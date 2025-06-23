@@ -25,28 +25,11 @@ def carregar_para_s3():
     s3 = boto3.resource(
         service_name='s3',
         region_name='us-east-2',
-        aws_access_key_id='AKIAQZMOKHQJWL4I76FM',
-        aws_secret_access_key='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'
+        aws_access_key_id='',
+        aws_secret_access_key=''
     )
     with open("data/incidentes_certbr_2020.parquet", "rb") as f:
         s3.upload_fileobj(f, "projincidentes", "trusted/incidentes_cert_2020.parquet")
     print("✅ Arquivo enviado ao S3!")
 
-
-def carregar_para_s3():
-    s3 = boto3.resource(
-        service_name='s3',
-        region_name='us-east-2',
-        aws_access_key_id='AKIAQZMOKHQJWL4I76FM',
-        aws_secret_access_key='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'
-    )
-
-    with open("data/incidentes_certbr_2020.parquet", "rb") as f:
-        s3.meta.client.upload_fileobj(
-            Fileobj=f,
-            Bucket="projincidentes",
-            Key="trusted/incidentes_cert_2020.parquet"
-        )
-
-    print("✅ Arquivo enviado ao S3!")
 
